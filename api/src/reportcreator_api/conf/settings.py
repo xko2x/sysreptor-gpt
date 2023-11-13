@@ -555,7 +555,7 @@ LICENSE_VALIDATION_KEYS = [
     {'id': 'silver', 'algorithm': 'ed25519', 'key': 'MCowBQYDK2VwAyEAwu/cl0CZSSBFOzFSz/hhUQQjHIKiT4RS3ekPevSKn7w='},
     {'id': 'magenta', 'algorithm': 'ed25519', 'key': 'MCowBQYDK2VwAyEAd10mgfTx0fuPO6KwcYU98RLhreCF+BQCeI6CAs0YztA='},
 ]
-LICENSE_COMMUNITY_MAX_USERS = 3
+LICENSE_COMMUNITY_MAX_USERS = 3300
 
 
 # Languages

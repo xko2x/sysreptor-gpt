@@ -122,6 +122,9 @@ echo "Setting up initial data..."
 echo "Creating initial user..."
 password=`openssl rand -base64 20 | tr -d '\n='`
 echo '' | docker compose exec --no-TTY -e DJANGO_SUPERUSER_USERNAME="reptor" -e DJANGO_SUPERUSER_PASSWORD="$password" app python3 manage.py createsuperuser --noinput
+echo "You can now login at http://127.0.0.1:8000"
+echo "Username: reptor"
+echo "Password: $password"
 echo "Importing demo projects..."
 url="https://docs.sysreptor.com/assets/demo-projects.tar.gz"
 curl -s "$url" | docker compose exec --no-TTY app python3 manage.py importdemodata --type=project --add-member=reptor
@@ -135,9 +138,6 @@ echo "All imported."
 
 echo ""
 echo "Very nice."
-echo "You can now login at http://127.0.0.1:8000"
-echo "Username: reptor"
-echo "Password: $password"
 echo ""
 echo "This was easy, wasn't it?"
 echo "We recommend to setup a web server with HTTPS."

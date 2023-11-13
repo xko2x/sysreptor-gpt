@@ -87,6 +87,7 @@ def decode_and_validate_license(license, skip_limit_validation=False):
         # All license checks are valid
         return {
             'type': LicenseType.PROFESSIONAL,
+            'users': settings.LICENSE_COMMUNITY_MAX_USERS,
             'error': None,
         }
     except LicenseError as ex:
@@ -95,7 +96,7 @@ def decode_and_validate_license(license, skip_limit_validation=False):
         
         error_details = ex.detail if isinstance(ex.detail, dict) else {'error': ex.detail}
         return error_details | {
-            'type': LicenseType.COMMUNITY,
+            'type': LicenseType.PROFESSIONAL,
             'users': settings.LICENSE_COMMUNITY_MAX_USERS,
         }
         
